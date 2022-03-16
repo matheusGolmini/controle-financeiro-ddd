@@ -14,3 +14,5 @@ export default class DomainId extends Entity<any> {
     return new DomainId(new UniqueEntityID(id));
   }
 }
+
+export { DomainId };

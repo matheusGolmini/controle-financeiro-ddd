@@ -56,3 +56,5 @@ export default class Result<T> {
     return Result.ok();
   }
 }
+
+export { Result };

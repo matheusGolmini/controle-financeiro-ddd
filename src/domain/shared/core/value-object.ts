@@ -7,7 +7,7 @@ interface ValueObjectProps {
  * equality through their structrual property.
  */
 
-export abstract class ValueObject<T extends ValueObjectProps> {
+export default abstract class ValueObject<T extends ValueObjectProps> {
   public props: T;
 
   constructor(props: T) {
@@ -28,3 +28,5 @@ export abstract class ValueObject<T extends ValueObjectProps> {
     return JSON.stringify(this.props) === JSON.stringify(valueObject.props);
   }
 }
+
+export { ValueObject };

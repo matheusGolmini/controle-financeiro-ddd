@@ -42,3 +42,5 @@ export default abstract class Entity<T extends BaseDomainEntity> {
     return this._id.equals(object._id);
   }
 }
+
+export { Entity };

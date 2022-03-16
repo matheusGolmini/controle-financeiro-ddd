@@ -24,3 +24,5 @@ export default class Identifier<T> {
     return this.value;
   }
 }
+
+export { Identifier };

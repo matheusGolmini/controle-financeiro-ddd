@@ -11,3 +11,5 @@ export default abstract class BaseDomainEntity {
     this.deletedAt = isDeleted ? deletedAt : undefined;
   }
 }
+
+export { BaseDomainEntity };
