@@ -1,0 +1,20 @@
+import { Result, ValueObject } from '../../shared';
+import isEmail from 'validator/lib/isEmail';
+
+export interface EmailValueObjectProps {
+  value: string;
+}
+
+export class EmailValueObject extends ValueObject<EmailValueObjectProps> {
+  private constructor(props: EmailValueObjectProps) {
+    super(props);
+  }
+
+  public static create(email: string): Result<EmailValueObject> {
+    const isValidEmail = isEmail(email);
+
+    return isValidEmail
+      ? Result.ok<EmailValueObject>(new EmailValueObject({ value: email }))
+      : Result.fail<EmailValueObject>('Invalid Email');
+  }
+}
