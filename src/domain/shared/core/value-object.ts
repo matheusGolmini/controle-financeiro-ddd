@@ -1,5 +1,5 @@
 interface ValueObjectProps {
-  [index: string]: unknown;
+  [index: string]: any;
 }
 
 /**
