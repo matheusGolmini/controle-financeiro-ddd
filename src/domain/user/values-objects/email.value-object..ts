@@ -14,7 +14,9 @@ export class EmailValueObject extends ValueObject<EmailValueObjectProps> {
     const isValidEmail = isEmail(email);
 
     return isValidEmail
-      ? Result.ok<EmailValueObject>(new EmailValueObject({ value: email }))
+      ? Result.ok<EmailValueObject>(
+          new EmailValueObject({ value: email.toLocaleLowerCase() }),
+        )
       : Result.fail<EmailValueObject>('Invalid Email');
   }
 }
