@@ -5,10 +5,18 @@
     "id": "uuid",
     "email": "example@email.com",
     "password": "123456",
+    "budgetBoxIds":["uuid"],
+    "totalBalanceAvaliable": 10.00,
     "terms": [{
         "id": "uuid",
         "ip": "120.06.09..011",
-        "acceptedAt": "01-01-2021 10:00:00"
+        "acceptedAt": "01-01-2021 10:00:00",
+        "userAgent": {
+            "name": "firefox",
+            "version": "86.0.0",
+            "os": "Linux",
+            "type": "browser"
+        }
     }]
 }
 ```
