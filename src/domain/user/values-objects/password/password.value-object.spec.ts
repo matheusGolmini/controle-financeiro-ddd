@@ -25,6 +25,5 @@ describe('password.value-object.', () => {
     expect(password2.error).toBe(
       'Password must have min 3 char and max 20 char',
     );
-
   });
 });
