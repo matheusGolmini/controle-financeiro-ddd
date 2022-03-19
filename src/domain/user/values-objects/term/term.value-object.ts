@@ -6,6 +6,12 @@ export enum IOs {
   LINUX,
   WINDOWS,
   MACOS,
+  MAC,
+  APPLE,
+  MACINTOSH,
+  ANDROID,
+  IPAD,
+  IPHONE,
 }
 
 export interface IUserAgent {
