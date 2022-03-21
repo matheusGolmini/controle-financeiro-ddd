@@ -3,16 +3,18 @@ import {
   Result,
   UniqueEntityID,
 } from '../../../../domain/shared';
-import { EmailValueObject } from '../../values-objects/email/email.value-object';
-import { PasswordValueObject } from '../../values-objects/password/password.value-object';
-import { TermValueObject } from '../../values-objects/term/term.value-object';
+import {
+  EmailValueObject,
+  PasswordValueObject,
+  TermValueObject,
+} from '../../values-objects';
 
 export interface UserAggregateProps {
   email: EmailValueObject;
   password: PasswordValueObject;
   budgetBoxIds?: string[];
   totalBalanceAvaliable: number;
-  terms: TermValueObject;
+  terms: TermValueObject[];
 }
 
 export class UserAggregate extends AggregateRoot<UserAggregateProps> {
