@@ -6,7 +6,7 @@ describe('password.value-object.', () => {
     const password = PasswordValueObject.create(passwordMock);
 
     expect(password.isSuccess).toBe(true);
-    expect(password.getResult().props.value).toBe(passwordMock);
+    expect(password.getResult().value).toBe(passwordMock);
   });
 
   it('Should fail if password is not on range min 3 char and man 20 char', () => {

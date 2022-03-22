@@ -9,6 +9,10 @@ export class PasswordValueObject extends ValueObject<PasswordValueObjectProps> {
     super(props);
   }
 
+  get value(): string {
+    return this.props.value;
+  }
+
   public static create(password: string): Result<PasswordValueObject> {
     const isValidPasswordLength = password.length >= 3 && password.length <= 20;
 

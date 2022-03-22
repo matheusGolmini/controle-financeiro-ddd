@@ -15,6 +15,6 @@ describe('email.value-object', () => {
     const emailMock = 'VALID_mail@domain.com';
     const email = EmailValueObject.create(emailMock);
 
-    expect(email.getResult().props.value).toBe(emailMock.toLocaleLowerCase());
+    expect(email.getResult().value).toBe(emailMock.toLocaleLowerCase());
   });
 });

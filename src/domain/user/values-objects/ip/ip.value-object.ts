@@ -10,6 +10,10 @@ export class IpValueObject extends ValueObject<IpValueObjectProps> {
     super(props);
   }
 
+  get value(): string {
+    return this.props.value;
+  }
+
   public static create(ip: string): Result<IpValueObject> {
     const isValidIp = isIp(ip);
 
