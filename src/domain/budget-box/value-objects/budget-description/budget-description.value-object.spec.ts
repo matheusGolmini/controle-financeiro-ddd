@@ -1,6 +1,6 @@
 import { BudgetDescriptionValueObject } from './budget-description.value-object';
 
-describe('description.value-object', () => {
+describe('budget-description.value-object', () => {
   it('should create a valid description value object', () => {
     const description =
       BudgetDescriptionValueObject.create('valid_description');
