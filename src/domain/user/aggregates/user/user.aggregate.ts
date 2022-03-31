@@ -1,3 +1,4 @@
+import { BudgetIdValueObject } from 'src/domain/budget-box/value-objects/budget-id/budget-id.value-object';
 import { AggregateRoot, Result, UniqueEntityID } from '../../../shared';
 import {
   EmailValueObject,
@@ -8,7 +9,7 @@ import {
 export interface UserAggregateProps {
   email: EmailValueObject;
   password: PasswordValueObject;
-  budgetBoxIds?: string[];
+  budgetBoxIds?: BudgetIdValueObject[];
   totalBalanceAvaliable: number;
   terms: TermValueObject[];
 }
@@ -26,7 +27,7 @@ export class UserAggregate extends AggregateRoot<UserAggregateProps> {
     return this.props.password;
   }
 
-  public get budgetBoxIds(): string[] {
+  public get budgetBoxIds(): BudgetIdValueObject[] {
     return this.props.budgetBoxIds ?? [];
   }
 

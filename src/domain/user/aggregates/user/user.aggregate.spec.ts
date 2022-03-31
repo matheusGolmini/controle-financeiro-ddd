@@ -1,3 +1,4 @@
+import { BudgetIdValueObject } from '../../../budget-box/value-objects';
 import { UniqueEntityID } from '../../../shared';
 import {
   AcceptedAtValueObject,
@@ -14,7 +15,9 @@ describe('user.aggregate', () => {
       email: EmailValueObject.create('email@valid.com').getResult(),
       password: PasswordValueObject.create('validPassword').getResult(),
       totalBalanceAvaliable: 0,
-      budgetBoxIds: ['valid_1', 'valid_2'],
+      budgetBoxIds: [
+        BudgetIdValueObject.create(new UniqueEntityID('valid_id')).getResult(),
+      ],
       terms: [
         TermValueObject.create({
           acceptedAt: AcceptedAtValueObject.create(new Date()).getResult(),
@@ -62,7 +65,9 @@ describe('user.aggregate', () => {
       email: EmailValueObject.create('email@valid.com').getResult(),
       password: PasswordValueObject.create('validPassword').getResult(),
       totalBalanceAvaliable: 0,
-      budgetBoxIds: ['valid_1', 'valid_2'],
+      budgetBoxIds: [
+        BudgetIdValueObject.create(new UniqueEntityID('valid_id')).getResult(),
+      ],
       terms: [
         TermValueObject.create({
           acceptedAt: AcceptedAtValueObject.create(new Date()).getResult(),
@@ -79,13 +84,17 @@ describe('user.aggregate', () => {
 
     const userResult = user.getResult();
 
+    const validsIds = userResult.budgetBoxIds.map((idValueObject) =>
+      idValueObject.id.toValue(),
+    );
+
     expect(userResult.id).toBeDefined();
     expect(userResult.createdAt).toBeDefined();
     expect(userResult.email.value).toEqual('email@valid.com');
     expect(userResult.isDeleted).toBeFalsy();
     expect(userResult.password.value).toEqual('validPassword');
     expect(userResult.totalBalanceAvaliable).toBe(0);
-    expect(userResult.budgetBoxIds).toEqual(['valid_1', 'valid_2']);
+    expect(validsIds).toEqual(['valid_id']);
     expect(userResult.terms[0].value.acceptedAt.value).toBeDefined();
     expect(userResult.terms[0].value.ip.value).toBe('192.158.1.38');
     expect(userResult.terms[0].value.userAgent).toEqual({
