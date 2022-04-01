@@ -21,13 +21,13 @@ export class StatusValueObject extends ValueObject<StatusValueObjectProps> {
   }
 
   public static create(type: statusType): Result<StatusValueObjectProps> {
-    const isValidEnumValue = Object.values(ValidStatusTypeEnum).includes(
-      type.toUpperCase(),
-    );
+    const valueToUppercase = type.toUpperCase();
+    const isValidEnumValue =
+      Object.values(ValidStatusTypeEnum).includes(valueToUppercase);
 
     return isValidEnumValue
       ? Result.ok<StatusValueObject>(
-          new StatusValueObject({ value: type.toUpperCase() as statusType }),
+          new StatusValueObject({ value: valueToUppercase as statusType }),
         )
       : Result.fail<StatusValueObject>('Invalid status');
   }
