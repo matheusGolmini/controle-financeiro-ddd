@@ -24,8 +24,8 @@
 ```
 
 - transaction-type: Value Object (enum) - Ok
-- status: Value Object (enum)
-- note: Value Object
-- attachment: Value Object
-- calculations: Value Object
+- status: Value Object (enum) - ok
+- note: Value Object - ok
+- attachment: Value Object - ok
+- calculations: Value Object -ok
 - paymentDate: Value Object - Ok
