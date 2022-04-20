@@ -1,4 +1,5 @@
 import { PasswordValueObject } from './password.value-object';
+import { hashSync } from 'bcrypt';
 
 describe('password.value-object.', () => {
   it('Should create a valid password', () => {
@@ -7,6 +8,7 @@ describe('password.value-object.', () => {
 
     expect(password.isSuccess).toBe(true);
     expect(password.getResult().value).toBe(passwordMock);
+    expect(password.getResult().isAlreadyEncrypt()).toBe(false);
   });
 
   it('Should fail if password is not on range min 3 char and man 20 char', () => {
@@ -25,5 +27,20 @@ describe('password.value-object.', () => {
     expect(password2.error).toBe(
       'Password must have min 3 char and max 20 char',
     );
+  });
+
+  it('Should create a valid encrypted password', () => {
+    const encryptedPass = hashSync('123abc', 10);
+    const password = PasswordValueObject.create(encryptedPass);
+
+    expect(password.isSuccess).toBe(true);
+    expect(password.getResult().value).toBe(encryptedPass);
+  });
+
+  it('Should create a valid password and encrypted after create', () => {
+    const password = PasswordValueObject.create('123abc');
+    expect(password.getResult().isAlreadyEncrypt()).toBe(false);
+    password.getResult().encryptPassword();
+    expect(password.getResult().isAlreadyEncrypt()).toBe(true);
   });
 });
