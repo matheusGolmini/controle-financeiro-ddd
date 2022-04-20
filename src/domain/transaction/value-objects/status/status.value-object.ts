@@ -20,7 +20,7 @@ export class StatusValueObject extends ValueObject<StatusValueObjectProps> {
     return this.props.value;
   }
 
-  public static create(type: statusType): Result<StatusValueObjectProps> {
+  public static create(type: statusType): Result<StatusValueObject> {
     const valueToUppercase = type.toUpperCase();
     const isValidEnumValue =
       Object.values(ValidStatusTypeEnum).includes(valueToUppercase);
