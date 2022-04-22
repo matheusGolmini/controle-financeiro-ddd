@@ -1,4 +1,5 @@
 import { StatusValueObject } from './status.value-object';
+import { ERROR_MESSAGES } from '../../../shared';
 
 describe('status.value-object', () => {
   it('Should create a valid status ', () => {
@@ -18,6 +19,6 @@ describe('status.value-object', () => {
     const status = StatusValueObject.create('INVALID_TYPE' as any);
 
     expect(status.isSuccess).toBe(false);
-    expect(status.error).toBe('Invalid status');
+    expect(status.error).toBe(ERROR_MESSAGES.INVALID_ENUM_TRANSACTION_STATUS);
   });
 });

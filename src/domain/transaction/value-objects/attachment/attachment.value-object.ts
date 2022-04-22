@@ -1,4 +1,4 @@
-import { Result, ValueObject } from '../../../shared';
+import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
 import isURL from 'validator/lib/isURL';
 const validateDirectoryPath = /^(.+)\/([^\/]+)$/;
 
@@ -20,7 +20,9 @@ export class AttachmentValueObject extends ValueObject<AttachmentValueObjectProp
     const isValidDirectory = validateDirectoryPath.test(path);
 
     if (!isValidUrl && !isValidDirectory) {
-      return Result.fail<AttachmentValueObject>('Invalid path');
+      return Result.fail<AttachmentValueObject>(
+        ERROR_MESSAGES.INVALID_ATTACHMENT_PATH,
+      );
     }
 
     return Result.ok<AttachmentValueObject>(

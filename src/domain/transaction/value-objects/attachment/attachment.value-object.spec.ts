@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { AttachmentValueObject } from './attachment.value-object';
+import { ERROR_MESSAGES } from '../../../shared';
 
 describe('attachment.value-object', () => {
   it('Should create a valid attachment', () => {
@@ -14,7 +15,7 @@ describe('attachment.value-object', () => {
     const attachment = AttachmentValueObject.create('invalid_url');
 
     expect(attachment.isSuccess).toBe(false);
-    expect(attachment.error).toBe('Invalid path');
+    expect(attachment.error).toBe(ERROR_MESSAGES.INVALID_ATTACHMENT_PATH);
   });
 
   it('Should create a valid attachment path if provide a directory', () => {
@@ -30,6 +31,6 @@ describe('attachment.value-object', () => {
     const attachment = AttachmentValueObject.create('invalid_directory');
 
     expect(attachment.isSuccess).toBe(false);
-    expect(attachment.error).toBe('Invalid path');
+    expect(attachment.error).toBe(ERROR_MESSAGES.INVALID_ATTACHMENT_PATH);
   });
 });

@@ -1,4 +1,4 @@
-import { Result, ValueObject } from '../../../shared';
+import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
 
 export enum ValidStatusTypeEnum {
   'PENDENTE',
@@ -29,6 +29,8 @@ export class StatusValueObject extends ValueObject<StatusValueObjectProps> {
       ? Result.ok<StatusValueObject>(
           new StatusValueObject({ value: valueToUppercase as statusType }),
         )
-      : Result.fail<StatusValueObject>('Invalid status');
+      : Result.fail<StatusValueObject>(
+          ERROR_MESSAGES.INVALID_ENUM_TRANSACTION_STATUS,
+        );
   }
 }

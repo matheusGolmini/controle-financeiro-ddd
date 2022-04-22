@@ -1,4 +1,4 @@
-import { Result, ValueObject } from '../../../shared';
+import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
 
 export interface PercentageValueObjectProps {
   value: number;
@@ -24,6 +24,8 @@ export class PercentageValueObject extends ValueObject<PercentageValueObjectProp
             value: budgetPercentage,
           }),
         )
-      : Result.fail<PercentageValueObject>('Invalid Range Value');
+      : Result.fail<PercentageValueObject>(
+          ERROR_MESSAGES.PERCENTAGE_INVALID_VALUE,
+        );
   }
 }

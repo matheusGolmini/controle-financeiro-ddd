@@ -1,4 +1,5 @@
 import { ReasonDescriptionValueObject } from './reason-description.value-object';
+import { ERROR_MESSAGES } from '../../../shared';
 
 describe('reason-description.value-object', () => {
   it('should create a valid description value object', () => {
@@ -18,7 +19,7 @@ describe('reason-description.value-object', () => {
     const description = ReasonDescriptionValueObject.create('');
     expect(description.isFailure).toBe(true);
     expect(description.error).toBe(
-      'Invalid description lenght min 1 char and max 20 char',
+      ERROR_MESSAGES.INVALID_REASON_DESCRIPTION_LENGHT,
     );
   });
 
@@ -28,7 +29,7 @@ describe('reason-description.value-object', () => {
     );
     expect(description.isFailure).toBe(true);
     expect(description.error).toBe(
-      'Invalid description lenght min 1 char and max 20 char',
+      ERROR_MESSAGES.INVALID_REASON_DESCRIPTION_LENGHT,
     );
   });
 });

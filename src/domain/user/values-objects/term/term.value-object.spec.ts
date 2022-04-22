@@ -1,6 +1,7 @@
 import { DateValueObject } from '../../../shared/common/date/date.value-object';
 import { IpValueObject } from '../ip/ip.value-object';
 import { TermValueObject } from './term.value-object';
+import { ERROR_MESSAGES } from '../../../shared';
 
 describe('term.value-object', () => {
   it('Shoud create a valid term', () => {
@@ -32,6 +33,6 @@ describe('term.value-object', () => {
     });
 
     expect(term.isFailure).toBe(true);
-    expect(term.error).toBe('Invalid Os');
+    expect(term.error).toBe(ERROR_MESSAGES.INVALID_OPERATIONAL_SYSTEM);
   });
 });

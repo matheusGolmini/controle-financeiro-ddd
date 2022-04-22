@@ -1,4 +1,4 @@
-import { Result, ValueObject } from '../../../shared';
+import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
 import { hashSync, compareSync } from 'bcrypt';
 
 const isEncryptPass = /\$2b\$\d\d\$[\s\S]{53}|{.}\b/gm;
@@ -39,14 +39,12 @@ export class PasswordValueObject extends ValueObject<PasswordValueObjectProps> {
   public static create(password: string): Result<PasswordValueObject> {
     const isEncrypt = isEncryptPass.test(password);
 
-    console.log('class', isEncrypt);
-
     if (!isEncrypt) {
       const isValidPasswordLength =
         password.length >= 3 && password.length <= 20;
 
       if (!isValidPasswordLength) {
-        return Result.fail('Password must have min 3 char and max 20 char');
+        return Result.fail(ERROR_MESSAGES.INVALID_PASSWORD);
       }
     }
 

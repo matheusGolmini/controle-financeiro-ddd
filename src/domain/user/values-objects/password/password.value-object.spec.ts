@@ -1,5 +1,6 @@
 import { PasswordValueObject } from './password.value-object';
 import { hashSync } from 'bcrypt';
+import { ERROR_MESSAGES } from '../../../shared';
 
 describe('password.value-object.', () => {
   it('Should create a valid password', () => {
@@ -16,17 +17,13 @@ describe('password.value-object.', () => {
     const password1 = PasswordValueObject.create(shortPasswordMock);
 
     expect(password1.isFailure).toBe(true);
-    expect(password1.error).toBe(
-      'Password must have min 3 char and max 20 char',
-    );
+    expect(password1.error).toBe(ERROR_MESSAGES.INVALID_PASSWORD);
 
     const longPasswordMock = '1c54564654654651526854115';
     const password2 = PasswordValueObject.create(longPasswordMock);
 
     expect(password2.isFailure).toBe(true);
-    expect(password2.error).toBe(
-      'Password must have min 3 char and max 20 char',
-    );
+    expect(password2.error).toBe(ERROR_MESSAGES.INVALID_PASSWORD);
   });
 
   it('Should create a valid encrypted password', () => {

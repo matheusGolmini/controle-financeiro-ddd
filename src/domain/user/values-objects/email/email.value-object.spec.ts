@@ -1,4 +1,5 @@
 import { EmailValueObject } from './email.value-object';
+import { ERROR_MESSAGES } from '../../../shared';
 
 describe('email.value-object', () => {
   it('Should return a valid email', () => {
@@ -7,7 +8,7 @@ describe('email.value-object', () => {
   });
 
   it('Should return fail if provide an invalid email', () => {
-    const email = EmailValueObject.create('invalidMail.com');
+    const email = EmailValueObject.create(ERROR_MESSAGES.INVALID_EMAIL);
     expect(email.isFailure).toBe(true);
   });
 

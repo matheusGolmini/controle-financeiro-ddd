@@ -1,4 +1,4 @@
-import { Result, ValueObject } from '../../../shared';
+import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
 
 export enum ValidTransactionTypeEnum {
   'ENTRADA',
@@ -31,6 +31,8 @@ export class TransactionTypeValueObject extends ValueObject<TransactionTypeValue
       ? Result.ok<TransactionTypeValueObject>(
           new TransactionTypeValueObject({ value: type }),
         )
-      : Result.fail<TransactionTypeValueObject>('Invalid option');
+      : Result.fail<TransactionTypeValueObject>(
+          ERROR_MESSAGES.INVALID_ENUM_TRANSACTION_TYPE,
+        );
   }
 }

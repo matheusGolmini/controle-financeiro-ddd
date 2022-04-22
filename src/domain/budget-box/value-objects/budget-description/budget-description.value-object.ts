@@ -1,4 +1,4 @@
-import { Result, ValueObject } from '../../../shared';
+import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
 
 export interface BudgetDescriptionValueObjectProps {
   value: string;
@@ -26,7 +26,7 @@ export class BudgetDescriptionValueObject extends ValueObject<BudgetDescriptionV
           }),
         )
       : Result.fail<BudgetDescriptionValueObject>(
-          'Invalid description lenght min 1 char and max 30 char',
+          ERROR_MESSAGES.BUDGET_DESCRIPTION_LENGHT,
         );
   }
 }

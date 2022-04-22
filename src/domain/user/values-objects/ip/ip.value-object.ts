@@ -1,4 +1,4 @@
-import { Result, ValueObject } from '../../../shared';
+import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
 import isIp from 'validator/lib/isIP';
 
 export interface IpValueObjectProps {
@@ -19,6 +19,6 @@ export class IpValueObject extends ValueObject<IpValueObjectProps> {
 
     return isValidIp
       ? Result.ok<IpValueObject>(new IpValueObject({ value: ip }))
-      : Result.fail('Invalid ip');
+      : Result.fail(ERROR_MESSAGES.INVALID_IP);
   }
 }

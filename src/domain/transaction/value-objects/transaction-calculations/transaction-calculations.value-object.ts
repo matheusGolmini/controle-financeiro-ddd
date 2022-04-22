@@ -1,5 +1,5 @@
 import { BudgetIdValueObject } from '../../../budget-box/value-objects';
-import { Result, ValueObject } from '../../../shared';
+import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
 
 interface CalculationProps {
   budgetboxId: BudgetIdValueObject;
@@ -29,7 +29,7 @@ export class TransanctionCalculationValueObject extends ValueObject<Transanction
           new TransanctionCalculationValueObject({ calculation }),
         )
       : Result.fail<TransanctionCalculationValueObject>(
-          'Value should be positive',
+          ERROR_MESSAGES.TRANSACTION_CALCULATION_VALUE,
         );
   }
 }

@@ -1,5 +1,6 @@
 import { TransactionNoteValueObject } from './transaction-note.value-object';
 import { faker } from '@faker-js/faker';
+import { ERROR_MESSAGES } from '../../../../domain/shared';
 
 describe('transaction-note.value-object', () => {
   it('Shoud create a valid note', () => {
@@ -13,6 +14,6 @@ describe('transaction-note.value-object', () => {
     const note = TransactionNoteValueObject.create(faker.lorem.paragraph(10));
 
     expect(note.isSuccess).toBe(false);
-    expect(note.error).toBe('Note value should be less than 144 char');
+    expect(note.error).toBe(ERROR_MESSAGES.INVALID_TRANSACTION_NOTE_LENGHT);
   });
 });
