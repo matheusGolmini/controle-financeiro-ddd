@@ -1,5 +1,5 @@
 import { IpValueObject } from './ip.value-object';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('ip.value-object', () => {
   it('Should return a valid ip', () => {

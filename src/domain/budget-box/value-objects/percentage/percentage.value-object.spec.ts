@@ -1,5 +1,5 @@
 import { PercentageValueObject } from './percentage.value-object';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('percentage.value-object', () => {
   it('Should create a valid percentage value object', () => {

@@ -1,5 +1,10 @@
-import { BaseDomainEntity, Entity, Result, UniqueEntityID } from '../../shared';
-import { ReasonDescriptionValueObject } from '../value-objects';
+import {
+  BaseDomainEntity,
+  Entity,
+  Result,
+  UniqueEntityID,
+} from '@shared/index';
+import { ReasonDescriptionValueObject } from '@domain-budget-box/value-objects';
 
 export interface ReasonProps extends BaseDomainEntity {
   description: ReasonDescriptionValueObject;

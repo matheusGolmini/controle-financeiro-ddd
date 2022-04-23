@@ -1,12 +1,12 @@
-import { BudgetIdValueObject } from '../../../budget-box/value-objects';
-import { UniqueEntityID } from '../../../shared';
+import { BudgetIdValueObject } from '@domain-budget-box/value-objects';
+import { UniqueEntityID } from '@shared/index';
 import {
   DateValueObject,
   EmailValueObject,
   IpValueObject,
   PasswordValueObject,
   TermValueObject,
-} from '../../values-objects';
+} from '@domain-user/values-objects';
 import { UserAggregate } from './user.aggregate';
 
 describe('user.aggregate', () => {

@@ -1,7 +1,7 @@
 import { DateValueObject } from '../../../shared/common/date/date.value-object';
 import { IpValueObject } from '../ip/ip.value-object';
 import { TermValueObject } from './term.value-object';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('term.value-object', () => {
   it('Shoud create a valid term', () => {

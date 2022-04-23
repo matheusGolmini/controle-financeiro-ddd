@@ -1,5 +1,5 @@
 import { ReasonDescriptionValueObject } from './reason-description.value-object';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('reason-description.value-object', () => {
   it('should create a valid description value object', () => {

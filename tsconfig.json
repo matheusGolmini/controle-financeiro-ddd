@@ -6,16 +6,25 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
+    "target": "ES2019",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "rootDir": "src",
+    "baseUrl": "./src",
+    "paths": {
+      "@domain-budget-box/*":["domain/budget-box/*"],
+      "@domain-user/*":["domain/user/*"],
+      "@domain-transaction/*":["domain/transaction/*"],
+      "@shared-core/*":["domain/shared/core/*"],
+      "@shared-common/*":["domain/shared/common/*"],
+      "@shared/*":["domain/shared/*"]
+    }
   }
 }

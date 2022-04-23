@@ -1,4 +1,4 @@
-import { UniqueEntityID } from '../../../shared';
+import { UniqueEntityID } from '@shared/index';
 import { BudgetIdValueObject } from './budget-id.value-object';
 
 describe('budget-id.value-object', () => {

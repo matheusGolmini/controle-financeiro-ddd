@@ -1,5 +1,5 @@
 import { BudgetDescriptionValueObject } from './budget-description.value-object';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('budget-description.value-object', () => {
   it('should create a valid description value object', () => {

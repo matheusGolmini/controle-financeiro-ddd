@@ -1,6 +1,6 @@
 import { TransactionNoteValueObject } from './transaction-note.value-object';
 import { faker } from '@faker-js/faker';
-import { ERROR_MESSAGES } from '../../../../domain/shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('transaction-note.value-object', () => {
   it('Shoud create a valid note', () => {

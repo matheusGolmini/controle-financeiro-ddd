@@ -1,5 +1,5 @@
-import { BudgetIdValueObject } from '../../../budget-box/value-objects';
-import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
+import { BudgetIdValueObject } from '@domain-budget-box/value-objects';
+import { Result, ValueObject, ERROR_MESSAGES } from '@shared/index';
 
 interface CalculationProps {
   budgetboxId: BudgetIdValueObject;

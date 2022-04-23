@@ -1,4 +1,4 @@
-import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
+import { Result, ValueObject, ERROR_MESSAGES } from '@shared/index';
 import { hashSync, compareSync } from 'bcrypt';
 
 const isEncryptPass = /\$2b\$\d\d\$[\s\S]{53}|{.}\b/gm;

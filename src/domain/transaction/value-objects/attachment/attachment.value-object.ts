@@ -1,4 +1,4 @@
-import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
+import { Result, ValueObject, ERROR_MESSAGES } from '@shared/index';
 import isURL from 'validator/lib/isURL';
 const validateDirectoryPath = /^(.+)\/([^\/]+)$/;
 

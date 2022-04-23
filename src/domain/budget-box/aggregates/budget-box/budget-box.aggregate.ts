@@ -1,10 +1,10 @@
-import { AggregateRoot, Result, UniqueEntityID } from '../../../shared';
-import { UserIdValueObject } from '../../../user/values-objects';
-import { ReasonDomainEntity } from '../../entities';
+import { AggregateRoot, Result, UniqueEntityID } from '@shared/index';
+import { UserIdValueObject } from '@domain-user/values-objects';
+import { ReasonDomainEntity } from '@domain-budget-box/entities';
 import {
   BudgetDescriptionValueObject,
   PercentageValueObject,
-} from '../../value-objects';
+} from '@domain-budget-box/value-objects';
 
 export interface BudgetBoxAggregateProps {
   ownerId: UserIdValueObject;

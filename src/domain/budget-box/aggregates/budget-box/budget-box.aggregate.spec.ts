@@ -1,10 +1,10 @@
-import { UserIdValueObject } from '../../../user/values-objects';
-import { ReasonDomainEntity } from '../../entities';
+import { UserIdValueObject } from '@domain-user/values-objects';
+import { ReasonDomainEntity } from '@domain-budget-box/entities';
 import {
   BudgetDescriptionValueObject,
   PercentageValueObject,
   ReasonDescriptionValueObject,
-} from '../../value-objects';
+} from '@domain-budget-box/value-objects';
 import { BudgetBoxAggregate } from './budget-box.aggregate';
 
 describe('budget-box.aggregate', () => {

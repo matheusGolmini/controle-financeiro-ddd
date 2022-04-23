@@ -1,5 +1,9 @@
-import { Result, ValueObject, ERROR_MESSAGES } from '../../../shared';
-import { DateValueObject } from '../../../shared';
+import {
+  Result,
+  ValueObject,
+  ERROR_MESSAGES,
+  DateValueObject,
+} from '@shared/index';
 import { IpValueObject } from '../ip/ip.value-object';
 
 export enum IOs {

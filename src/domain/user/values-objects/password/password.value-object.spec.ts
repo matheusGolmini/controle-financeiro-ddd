@@ -1,6 +1,6 @@
 import { PasswordValueObject } from './password.value-object';
 import { hashSync } from 'bcrypt';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('password.value-object.', () => {
   it('Should create a valid password', () => {

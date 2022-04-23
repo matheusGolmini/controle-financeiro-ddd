@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { AttachmentValueObject } from './attachment.value-object';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('attachment.value-object', () => {
   it('Should create a valid attachment', () => {

@@ -1,5 +1,5 @@
 import { TransactionTypeValueObject } from './transaction-type.value-object';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('transaction-type.value-object', () => {
   it('Should create a valid transaction-type ', () => {

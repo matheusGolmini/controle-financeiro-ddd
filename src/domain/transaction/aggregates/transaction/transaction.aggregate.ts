@@ -4,15 +4,15 @@ import {
   ReasonIdValueObject,
   Result,
   UniqueEntityID,
-} from '../../../shared';
-import { UserIdValueObject } from '../../../user/values-objects';
+} from '@shared/index';
+import { UserIdValueObject } from '@domain-user/values-objects';
 import {
   AttachmentValueObject,
   StatusValueObject,
   TransactionNoteValueObject,
   TransactionTypeValueObject,
   TransanctionCalculationValueObject,
-} from '../../value-objects';
+} from '@domain-transaction/value-objects';
 
 export interface TransactionAggregateProps {
   userId: UserIdValueObject;

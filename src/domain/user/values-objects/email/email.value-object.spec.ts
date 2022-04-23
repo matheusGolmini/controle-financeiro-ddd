@@ -1,5 +1,5 @@
 import { EmailValueObject } from './email.value-object';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('email.value-object', () => {
   it('Should return a valid email', () => {

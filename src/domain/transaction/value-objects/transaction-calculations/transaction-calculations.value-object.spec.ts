@@ -1,7 +1,7 @@
-import { BudgetIdValueObject } from '../../../budget-box/value-objects';
-import { UniqueEntityID } from '../../../shared';
+import { BudgetIdValueObject } from '@domain-budget-box/value-objects';
+import { UniqueEntityID } from '@shared/index';
 import { TransanctionCalculationValueObject } from './transaction-calculations.value-object';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('transaction-calculations.value-object', () => {
   it('Shoulde create a valid calculation', () => {

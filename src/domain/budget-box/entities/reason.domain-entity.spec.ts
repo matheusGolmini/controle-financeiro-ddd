@@ -1,5 +1,5 @@
-import { UniqueEntityID } from '../../shared';
-import { ReasonDescriptionValueObject } from '../value-objects';
+import { UniqueEntityID } from '@shared/index';
+import { ReasonDescriptionValueObject } from '@domain-budget-box/value-objects';
 import { ReasonDomainEntity } from './reason.domain-entity';
 
 describe('reason.domain-entity', () => {

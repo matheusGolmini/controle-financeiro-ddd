@@ -1,17 +1,17 @@
-import { BudgetIdValueObject } from '../../../budget-box/value-objects';
+import { BudgetIdValueObject } from '@domain-budget-box/value-objects';
 import {
   DateValueObject,
   ReasonIdValueObject,
   UniqueEntityID,
-} from '../../../shared';
-import { UserIdValueObject } from '../../../user/values-objects';
+} from '@shared/index';
+import { UserIdValueObject } from '@domain-user/values-objects';
 import {
   TransactionNoteValueObject,
   TransanctionCalculationValueObject,
   StatusValueObject,
   AttachmentValueObject,
   TransactionTypeValueObject,
-} from '../../value-objects';
+} from '@domain-transaction/value-objects';
 import { TransactionAggregate } from './transaction.aggregate';
 
 describe('transaction.aggregate', () => {

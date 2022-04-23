@@ -1,5 +1,5 @@
 import { StatusValueObject } from './status.value-object';
-import { ERROR_MESSAGES } from '../../../shared';
+import { ERROR_MESSAGES } from '@shared/index';
 
 describe('status.value-object', () => {
   it('Should create a valid status ', () => {
