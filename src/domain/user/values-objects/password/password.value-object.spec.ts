@@ -9,7 +9,7 @@ describe('password.value-object.', () => {
 
     expect(password.isSuccess).toBe(true);
     expect(password.getResult().value).toBe(passwordMock);
-    expect(password.getResult().isAlreadyEncrypt()).toBe(false);
+    expect(password.getResult().isAlreadyEncrypt).toBe(false);
   });
 
   it('Should fail if password is not on range min 3 char and man 20 char', () => {
@@ -36,8 +36,38 @@ describe('password.value-object.', () => {
 
   it('Should create a valid password and encrypted after create', () => {
     const password = PasswordValueObject.create('123abc');
-    expect(password.getResult().isAlreadyEncrypt()).toBe(false);
+    expect(password.getResult().isAlreadyEncrypt).toBe(false);
     password.getResult().encryptPassword();
-    expect(password.getResult().isAlreadyEncrypt()).toBe(true);
+    expect(password.getResult().isAlreadyEncrypt).toBe(true);
+  });
+
+  it('Should compare an encripted password and return success if matches', () => {
+    const password = PasswordValueObject.create('123abc');
+    expect(password.getResult().isAlreadyEncrypt).toBe(false);
+
+    const isEqualPlainText = password.getResult().comparePasswords('123abc');
+    expect(isEqualPlainText).toBe(true);
+
+    password.getResult().encryptPassword();
+    expect(password.getResult().isAlreadyEncrypt).toBe(true);
+    const isEqualEncrypted = password.getResult().comparePasswords('123abc');
+    expect(isEqualEncrypted).toBe(true);
+  });
+
+  it('Should compare an encripted password and return false if does not match', () => {
+    const password = PasswordValueObject.create('123abc');
+    expect(password.getResult().isAlreadyEncrypt).toBe(false);
+
+    const isEqualPlainText = password
+      .getResult()
+      .comparePasswords('invalid_password');
+    expect(isEqualPlainText).toBe(false);
+
+    password.getResult().encryptPassword();
+    expect(password.getResult().isAlreadyEncrypt).toBe(true);
+    const isEqualEncrypted = password
+      .getResult()
+      .comparePasswords('invalid_password');
+    expect(isEqualEncrypted).toBe(false);
   });
 });
