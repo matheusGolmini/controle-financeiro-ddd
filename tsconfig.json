@@ -24,7 +24,8 @@
       "@domain-transaction/*":["domain/transaction/*"],
       "@shared-core/*":["domain/shared/core/*"],
       "@shared-common/*":["domain/shared/common/*"],
-      "@shared/*":["domain/shared/*"]
+      "@shared/*":["domain/shared/*"],
+      "@infra/*":["infra/*"],
     }
   }
 }

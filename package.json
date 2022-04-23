@@ -67,6 +67,7 @@
     "@shared-core": "dist/domain/shared/core/",
     "@shared-common": "dist/domain/shared/common/",
     "@shared": "dist/domain/shared/",
+    "@infra": "dist/infra/",
     "@": "dist"
   }
 }
