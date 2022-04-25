@@ -26,7 +26,7 @@ export class BudgetDescriptionValueObject extends ValueObject<BudgetDescriptionV
           }),
         )
       : Result.fail<BudgetDescriptionValueObject>(
-          ERROR_MESSAGES.BUDGET_DESCRIPTION_LENGHT,
+          ERROR_MESSAGES.BUDGET_DESCRIPTION_LENGTH,
         );
   }
 }

@@ -19,7 +19,7 @@ describe('reason-description.value-object', () => {
     const description = ReasonDescriptionValueObject.create('');
     expect(description.isFailure).toBe(true);
     expect(description.error).toBe(
-      ERROR_MESSAGES.INVALID_REASON_DESCRIPTION_LENGHT,
+      ERROR_MESSAGES.INVALID_REASON_DESCRIPTION_LENGTH,
     );
   });
 
@@ -29,7 +29,7 @@ describe('reason-description.value-object', () => {
     );
     expect(description.isFailure).toBe(true);
     expect(description.error).toBe(
-      ERROR_MESSAGES.INVALID_REASON_DESCRIPTION_LENGHT,
+      ERROR_MESSAGES.INVALID_REASON_DESCRIPTION_LENGTH,
     );
   });
 });

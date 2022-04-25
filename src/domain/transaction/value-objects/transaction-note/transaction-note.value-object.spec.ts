@@ -14,6 +14,6 @@ describe('transaction-note.value-object', () => {
     const note = TransactionNoteValueObject.create(faker.lorem.paragraph(10));
 
     expect(note.isSuccess).toBe(false);
-    expect(note.error).toBe(ERROR_MESSAGES.INVALID_TRANSACTION_NOTE_LENGHT);
+    expect(note.error).toBe(ERROR_MESSAGES.INVALID_TRANSACTION_NOTE_LENGTH);
   });
 });

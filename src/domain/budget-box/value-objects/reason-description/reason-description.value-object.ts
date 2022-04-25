@@ -26,7 +26,7 @@ export class ReasonDescriptionValueObject extends ValueObject<ReasonDescriptionV
           }),
         )
       : Result.fail<ReasonDescriptionValueObject>(
-          ERROR_MESSAGES.INVALID_REASON_DESCRIPTION_LENGHT,
+          ERROR_MESSAGES.INVALID_REASON_DESCRIPTION_LENGTH,
         );
   }
 }

@@ -21,7 +21,7 @@ export class TransactionNoteValueObject extends ValueObject<TransactionNoteValue
           new TransactionNoteValueObject({ value: note }),
         )
       : Result.fail<TransactionNoteValueObject>(
-          ERROR_MESSAGES.INVALID_TRANSACTION_NOTE_LENGHT,
+          ERROR_MESSAGES.INVALID_TRANSACTION_NOTE_LENGTH,
         );
   }
 }

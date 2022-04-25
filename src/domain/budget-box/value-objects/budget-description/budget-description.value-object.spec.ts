@@ -18,7 +18,7 @@ describe('budget-description.value-object', () => {
   it('should fail if not provide description', () => {
     const description = BudgetDescriptionValueObject.create('');
     expect(description.isFailure).toBe(true);
-    expect(description.error).toBe(ERROR_MESSAGES.BUDGET_DESCRIPTION_LENGHT);
+    expect(description.error).toBe(ERROR_MESSAGES.BUDGET_DESCRIPTION_LENGTH);
   });
 
   it('should fail if not provide long description (greatter than 30 char)', () => {
@@ -26,6 +26,6 @@ describe('budget-description.value-object', () => {
       'Invalid description lenght greatter than max 30 char',
     );
     expect(description.isFailure).toBe(true);
-    expect(description.error).toBe(ERROR_MESSAGES.BUDGET_DESCRIPTION_LENGHT);
+    expect(description.error).toBe(ERROR_MESSAGES.BUDGET_DESCRIPTION_LENGTH);
   });
 });
