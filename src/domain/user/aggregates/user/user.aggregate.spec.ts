@@ -14,7 +14,7 @@ describe('user.aggregate', () => {
     const user = UserAggregate.create({
       email: EmailValueObject.create('email@valid.com').getResult(),
       password: PasswordValueObject.create('validPassword').getResult(),
-      totalBalanceAvaliable: 0,
+      totalBalanceAvalable: 0,
       budgetBoxIds: [
         BudgetIdValueObject.create(new UniqueEntityID('valid_id')).getResult(),
       ],
@@ -40,7 +40,7 @@ describe('user.aggregate', () => {
       {
         email: EmailValueObject.create('email@valid.com').getResult(),
         password: PasswordValueObject.create('validPassword').getResult(),
-        totalBalanceAvaliable: 0,
+        totalBalanceAvalable: 0,
         terms: [
           TermValueObject.create({
             acceptedAt: DateValueObject.create(new Date()).getResult(),
@@ -64,7 +64,7 @@ describe('user.aggregate', () => {
     const user = UserAggregate.create({
       email: EmailValueObject.create('email@valid.com').getResult(),
       password: PasswordValueObject.create('validPassword').getResult(),
-      totalBalanceAvaliable: 0,
+      totalBalanceAvalable: 0,
       budgetBoxIds: [
         BudgetIdValueObject.create(new UniqueEntityID('valid_id')).getResult(),
       ],
@@ -93,7 +93,7 @@ describe('user.aggregate', () => {
     expect(userResult.email.value).toEqual('email@valid.com');
     expect(userResult.isDeleted).toBeFalsy();
     expect(userResult.password.value).toEqual('validPassword');
-    expect(userResult.totalBalanceAvaliable).toBe(0);
+    expect(userResult.totalBalanceAvalable).toBe(0);
     expect(validsIds).toEqual(['valid_id']);
     expect(userResult.terms[0].value.acceptedAt.value).toBeDefined();
     expect(userResult.terms[0].value.ip.value).toBe('192.158.1.38');
@@ -109,7 +109,7 @@ describe('user.aggregate', () => {
     const user = UserAggregate.create({
       email: EmailValueObject.create('email@valid.com').getResult(),
       password: PasswordValueObject.create('validPassword').getResult(),
-      totalBalanceAvaliable: 0,
+      totalBalanceAvalable: 0,
       terms: [
         TermValueObject.create({
           acceptedAt: DateValueObject.create(new Date()).getResult(),

@@ -10,7 +10,7 @@ export interface UserAggregateProps {
   email: EmailValueObject;
   password: PasswordValueObject;
   budgetBoxIds?: BudgetIdValueObject[];
-  totalBalanceAvaliable: number;
+  totalBalanceAvalable: number;
   terms: TermValueObject[];
 }
 
@@ -31,8 +31,8 @@ export class UserAggregate extends AggregateRoot<UserAggregateProps> {
     return this.props.budgetBoxIds ?? [];
   }
 
-  public get totalBalanceAvaliable(): number {
-    return this.props.totalBalanceAvaliable;
+  public get totalBalanceAvalable(): number {
+    return this.props.totalBalanceAvalable;
   }
 
   public get terms(): TermValueObject[] {
