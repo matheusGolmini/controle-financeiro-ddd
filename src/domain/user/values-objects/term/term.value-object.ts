@@ -36,7 +36,7 @@ export class TermValueObject extends ValueObject<TermValueObjectProps> {
     super(props);
   }
 
-  get value(): TermValueObjectProps {
+  get term(): TermValueObjectProps {
     return this.props;
   }
 
