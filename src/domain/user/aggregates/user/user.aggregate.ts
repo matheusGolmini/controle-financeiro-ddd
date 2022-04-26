@@ -12,6 +12,8 @@ export interface UserAggregateProps {
   budgetBoxIds?: BudgetIdValueObject[];
   totalBalanceAvalable: number;
   terms: TermValueObject[];
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export class UserAggregate extends AggregateRoot<UserAggregateProps> {

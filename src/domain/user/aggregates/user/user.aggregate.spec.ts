@@ -10,6 +10,9 @@ import {
 import { UserAggregate } from './user.aggregate';
 
 describe('user.aggregate', () => {
+  const createdAt = new Date();
+  const updatedAt = new Date();
+
   it('Should create a valid user', () => {
     const user = UserAggregate.create({
       email: EmailValueObject.create('email@valid.com').getResult(),
@@ -30,6 +33,8 @@ describe('user.aggregate', () => {
           },
         }).getResult(),
       ],
+      createdAt,
+      updatedAt,
     });
 
     expect(user.isSuccess).toBe(true);
@@ -53,6 +58,8 @@ describe('user.aggregate', () => {
             },
           }).getResult(),
         ],
+        createdAt,
+        updatedAt,
       },
       new UniqueEntityID('valid_user_id'),
     );
@@ -80,6 +87,8 @@ describe('user.aggregate', () => {
           },
         }).getResult(),
       ],
+      createdAt,
+      updatedAt,
     });
 
     const userResult = user.getResult();
@@ -95,9 +104,9 @@ describe('user.aggregate', () => {
     expect(userResult.password.value).toEqual('validPassword');
     expect(userResult.totalBalanceAvalable).toBe(0);
     expect(validsIds).toEqual(['valid_id']);
-    expect(userResult.terms[0].value.acceptedAt.value).toBeDefined();
-    expect(userResult.terms[0].value.ip.value).toBe('192.158.1.38');
-    expect(userResult.terms[0].value.userAgent).toEqual({
+    expect(userResult.terms[0].term.acceptedAt.value).toBeDefined();
+    expect(userResult.terms[0].term.ip.value).toBe('192.158.1.38');
+    expect(userResult.terms[0].term.userAgent).toEqual({
       name: 'firefox',
       os: 'LINUX',
       type: 'browser',
@@ -122,6 +131,8 @@ describe('user.aggregate', () => {
           },
         }).getResult(),
       ],
+      createdAt,
+      updatedAt,
     });
 
     expect(user.getResult().budgetBoxIds).toEqual([]);
