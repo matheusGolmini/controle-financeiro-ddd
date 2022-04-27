@@ -5,8 +5,6 @@
     "id": "uuid",
     "email": "example@email.com",
     "password": "123456",
-    "budgetBoxIds":["uuid"],
-    "totalBalanceAvaliable": 10.00,
     "terms": [{
         "id": "uuid",
         "ip": "120.06.09..011",

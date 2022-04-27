@@ -17,10 +17,6 @@ describe('user.aggregate', () => {
     const user = UserAggregate.create({
       email: EmailValueObject.create('email@valid.com').getResult(),
       password: PasswordValueObject.create('validPassword').getResult(),
-      totalBalanceAvalable: 0,
-      budgetBoxIds: [
-        BudgetIdValueObject.create(new UniqueEntityID('valid_id')).getResult(),
-      ],
       terms: [
         TermValueObject.create({
           acceptedAt: DateValueObject.create(new Date()).getResult(),
@@ -45,7 +41,6 @@ describe('user.aggregate', () => {
       {
         email: EmailValueObject.create('email@valid.com').getResult(),
         password: PasswordValueObject.create('validPassword').getResult(),
-        totalBalanceAvalable: 0,
         terms: [
           TermValueObject.create({
             acceptedAt: DateValueObject.create(new Date()).getResult(),
@@ -71,10 +66,6 @@ describe('user.aggregate', () => {
     const user = UserAggregate.create({
       email: EmailValueObject.create('email@valid.com').getResult(),
       password: PasswordValueObject.create('validPassword').getResult(),
-      totalBalanceAvalable: 0,
-      budgetBoxIds: [
-        BudgetIdValueObject.create(new UniqueEntityID('valid_id')).getResult(),
-      ],
       terms: [
         TermValueObject.create({
           acceptedAt: DateValueObject.create(new Date()).getResult(),
@@ -93,17 +84,11 @@ describe('user.aggregate', () => {
 
     const userResult = user.getResult();
 
-    const validsIds = userResult.budgetBoxIds.map((idValueObject) =>
-      idValueObject.id.toValue(),
-    );
-
     expect(userResult.id).toBeDefined();
     expect(userResult.createdAt).toBeDefined();
     expect(userResult.email.value).toEqual('email@valid.com');
     expect(userResult.isDeleted).toBeFalsy();
     expect(userResult.password.value).toEqual('validPassword');
-    expect(userResult.totalBalanceAvalable).toBe(0);
-    expect(validsIds).toEqual(['valid_id']);
     expect(userResult.terms[0].term.acceptedAt.value).toBeDefined();
     expect(userResult.terms[0].term.ip.value).toBe('192.158.1.38');
     expect(userResult.terms[0].term.userAgent).toEqual({
@@ -112,29 +97,5 @@ describe('user.aggregate', () => {
       type: 'browser',
       version: '80.0.1',
     });
-  });
-
-  it('Should return empty array if not provide budgetBoxIds', () => {
-    const user = UserAggregate.create({
-      email: EmailValueObject.create('email@valid.com').getResult(),
-      password: PasswordValueObject.create('validPassword').getResult(),
-      totalBalanceAvalable: 0,
-      terms: [
-        TermValueObject.create({
-          acceptedAt: DateValueObject.create(new Date()).getResult(),
-          ip: IpValueObject.create('192.158.1.38').getResult(),
-          userAgent: {
-            name: 'firefox',
-            os: 'LINUX',
-            type: 'browser',
-            version: '80.0.1',
-          },
-        }).getResult(),
-      ],
-      createdAt,
-      updatedAt,
-    });
-
-    expect(user.getResult().budgetBoxIds).toEqual([]);
   });
 });

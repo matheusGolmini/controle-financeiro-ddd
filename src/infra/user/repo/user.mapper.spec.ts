@@ -21,12 +21,6 @@ describe('user.mapper', () => {
       {
         email: EmailValueObject.create('email@valid.com').getResult(),
         password: PasswordValueObject.create('validPassword').getResult(),
-        totalBalanceAvalable: 0,
-        budgetBoxIds: [
-          BudgetIdValueObject.create(
-            new UniqueEntityID('valid_id'),
-          ).getResult(),
-        ],
         terms: [
           TermValueObject.create({
             acceptedAt: DateValueObject.create(currentDate).getResult(),
@@ -46,7 +40,6 @@ describe('user.mapper', () => {
     ).getResult();
 
     persistence = {
-      budgetBoxIds: ['valid_id'],
       createdAt: currentDate,
       email: 'email@valid.com',
       id: 'valid_id',
@@ -63,7 +56,6 @@ describe('user.mapper', () => {
           },
         },
       ],
-      totalBalanceAvalable: 0,
       updatedAt: currentDate,
     };
   });

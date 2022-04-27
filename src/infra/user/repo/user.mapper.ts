@@ -29,10 +29,6 @@ export class UserMapper implements IMapper<UserAggregate, User> {
             },
           }).getResult(),
         ),
-        totalBalanceAvalable: target.totalBalanceAvalable,
-        budgetBoxIds: target.budgetBoxIds.map((box) =>
-          BudgetIdValueObject.create(new UniqueEntityID(box)).getResult(),
-        ),
         createdAt: target.createdAt,
         updatedAt: target.updatedAt,
       },
@@ -51,8 +47,6 @@ export class UserMapper implements IMapper<UserAggregate, User> {
           userAgent: term.userAgent,
         };
       }),
-      totalBalanceAvalable: target.totalBalanceAvalable,
-      budgetBoxIds: target.budgetBoxIds.map(({ id }) => id.toString()),
       createdAt: target.createdAt,
       updatedAt: target.updatedAt,
     };
