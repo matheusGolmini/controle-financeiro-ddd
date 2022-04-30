@@ -1,4 +1,3 @@
-import { BudgetIdValueObject } from '@domain-budget-box/value-objects';
 import { UserAggregate } from '@domain-user/aggregates';
 import {
   EmailValueObject,
@@ -43,6 +42,7 @@ describe('user.mapper', () => {
       createdAt: currentDate,
       email: 'email@valid.com',
       id: 'valid_id',
+      // deepcode ignore NoHardcodedPasswords: <please specify a reason of ignoring this>
       password: 'validPassword',
       terms: [
         {

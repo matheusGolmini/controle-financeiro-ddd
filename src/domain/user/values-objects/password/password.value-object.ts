@@ -1,5 +1,5 @@
 import { Result, ValueObject, ERROR_MESSAGES } from '@shared/index';
-import { hashSync, compareSync } from 'bcrypt';
+import { hashSync, compareSync, genSaltSync } from 'bcrypt';
 import { PasswordInterface } from './interfaces/password.interface';
 
 const isEncryptPass = /\$2b\$\d\d\$[\s\S]{53}|{.}\b/gm;
@@ -28,7 +28,8 @@ export class PasswordValueObject
   }
 
   encryptPassword(): void {
-    this.props.value = hashSync(this.props.value, 10);
+    const salt = genSaltSync();
+    this.props.value = hashSync(this.props.value, salt);
     this.isEncrypted = true;
   }
 
