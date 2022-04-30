@@ -18,10 +18,12 @@ export enum IOs {
   IPHONE,
 }
 
+export type systemTypes = keyof typeof IOs;
+
 export interface IUserAgent {
   name: string;
   version: string;
-  os: keyof typeof IOs;
+  os: systemTypes;
   type: string;
 }
 
