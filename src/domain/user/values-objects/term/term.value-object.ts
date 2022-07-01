@@ -7,15 +7,14 @@ import {
 import { IpValueObject } from '../ip/ip.value-object';
 
 export enum IOs {
-  LINUX,
-  WINDOWS,
-  MACOS,
-  MAC,
-  APPLE,
-  MACINTOSH,
-  ANDROID,
-  IPAD,
-  IPHONE,
+  LINUX = 'LINUX',
+  WINDOWS = 'WINDOWS',
+  MAC = 'MAC',
+  IPHONE = 'IPHONE',
+  APPLE = 'APPLE',
+  MACINTOSH = 'MACINTOSH',
+  ANDROID = 'ANDROID',
+  IPAD = 'IPAD',
 }
 
 export type systemTypes = keyof typeof IOs;
