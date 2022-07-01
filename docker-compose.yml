@@ -1,6 +1,21 @@
-version: '3'
+version: '3.2'
 
 services:
+  api:
+    container_name: controle-financeiro-api
+    build: .
+    command: sh -c "yarn && yarn start:dev"
+    environment:
+      #APP
+      NODE_ENV: development
+    depends_on:
+      - mongo
+    volumes:
+      - .:/app
+      - ~/.config:/root/.config
+      - /node_modules
+    ports:
+      - '3000:3000'
   mongo:
     container_name: finance_api
     image: mongo
@@ -9,11 +24,3 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: mongo
-
-  mongo-express:
-    image: mongo-express
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: mongo

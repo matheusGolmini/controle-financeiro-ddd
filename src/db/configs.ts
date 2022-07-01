@@ -7,4 +7,4 @@ export const MongoDbConfig: MongooseModuleOptions = {
 };
 
 /*mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}*/
-export const MongoURI = 'mongodb://root:mongo@localhost:27017';
+export const MongoURI = 'mongodb://root:mongo@finance_api:27017';
