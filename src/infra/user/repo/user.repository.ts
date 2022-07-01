@@ -14,9 +14,6 @@ export class UserRepository implements IUserRepository {
     @InjectModel(User.name) private readonly conn: Model<UserDocument>,
   ) {}
 
-  exists(filter: Filter<Partial<User>>): Promise<boolean> {
-    throw new Error('Method not implemented');
-  }
   find(filter: Filter<Partial<User>>): Promise<UserAggregate[]> {
     throw new Error('Method not implemented');
   }
@@ -26,7 +23,15 @@ export class UserRepository implements IUserRepository {
   delete(filter: Filter<Partial<User>>): Promise<void> {
     throw new Error('Method not implemented');
   }
-  save(target: UserAggregate): Promise<void> {
-    throw new Error('Method not implemented');
+
+  async exists(filter: Filter<Partial<User>>): Promise<boolean> {
+    const existingUser = await this.conn.exists(filter);
+    return !!existingUser;
+  }
+
+  async save(target: UserAggregate): Promise<void> {
+    const schema = this.mapper.toPersistence(target);
+    const user = new this.conn(schema);
+    await user.save();
   }
 }
