@@ -1,5 +1,5 @@
 import { IUserRepository } from '@repo/user.repository.interface';
-import { SignupUseCase } from './signup.use-case';
+import { SignUpUseCase } from './signup.use-case';
 
 describe('signup.use-case', () => {
   let userRepo: IUserRepository;
@@ -15,7 +15,7 @@ describe('signup.use-case', () => {
   });
 
   it('Should be defined', () => {
-    const useCase = new SignupUseCase(userRepo);
+    const useCase = new SignUpUseCase(userRepo);
     expect(useCase).toBeDefined();
   });
 });
