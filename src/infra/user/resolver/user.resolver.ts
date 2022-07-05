@@ -1,6 +1,8 @@
-import { Inject } from '@nestjs/common';
+import { Inject, NotAcceptableException } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { SignupInput } from '../inputs/signup.input';
+import { GetUserAgent } from '../services/decorators/get-user-agent.decorator';
+import { UserAgentType } from '../types/user-agent.type';
 import { UserType } from '../types/user.type';
 import { UserService } from '../user.service';
 
@@ -31,19 +33,21 @@ export class UserResolver {
   }
 
   @Mutation(() => Boolean)
-  async signup(@Args(SignupInput.name) user: SignupInput): Promise<boolean> {
+  async signup(
+    @Args(SignupInput.name) user: SignupInput,
+    @GetUserAgent() userAgent: UserAgentType,
+  ): Promise<boolean> {
     const success = true;
+    if (!user.acceptedTerms) {
+      throw new NotAcceptableException('Terms sgould be accepted');
+    }
+
     await this.userService.signup({
       ...user,
       term: {
         acceptedAt: new Date(),
-        ip: '123.123.123.123',
-        userAgent: {
-          name: 'firefox',
-          os: 'LINUX',
-          type: 'broser',
-          version: '86.01',
-        },
+        ip: user.ip,
+        userAgent,
       },
     });
     return success;
