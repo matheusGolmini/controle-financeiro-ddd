@@ -1,11 +1,10 @@
-import { IOs } from '@domain-user/values-objects';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
 export interface IUserAgent {
   name: string;
   version: string;
-  os: keyof typeof IOs;
+  os: string;
   type: string;
 }
 

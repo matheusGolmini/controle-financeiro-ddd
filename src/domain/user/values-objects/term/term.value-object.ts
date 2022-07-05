@@ -1,28 +1,10 @@
-import {
-  Result,
-  ValueObject,
-  ERROR_MESSAGES,
-  DateValueObject,
-} from '@shared/index';
+import { Result, ValueObject, DateValueObject } from '@shared/index';
 import { IpValueObject } from '../ip/ip.value-object';
-
-export enum IOs {
-  LINUX = 'LINUX',
-  WINDOWS = 'WINDOWS',
-  MAC = 'MAC',
-  IPHONE = 'IPHONE',
-  APPLE = 'APPLE',
-  MACINTOSH = 'MACINTOSH',
-  ANDROID = 'ANDROID',
-  IPAD = 'IPAD',
-}
-
-export type systemTypes = keyof typeof IOs;
 
 export interface IUserAgent {
   name: string;
   version: string;
-  os: systemTypes;
+  os: string;
   type: string;
 }
 
@@ -42,12 +24,6 @@ export class TermValueObject extends ValueObject<TermValueObjectProps> {
   }
 
   public static create(props: TermValueObjectProps): Result<TermValueObject> {
-    const isValidOs = Object.values(IOs).includes(
-      props.userAgent.os.toUpperCase() as any,
-    );
-
-    return isValidOs
-      ? Result.ok<TermValueObject>(new TermValueObject(props))
-      : Result.fail(ERROR_MESSAGES.INVALID_OPERATIONAL_SYSTEM);
+    return Result.ok<TermValueObject>(new TermValueObject(props));
   }
 }

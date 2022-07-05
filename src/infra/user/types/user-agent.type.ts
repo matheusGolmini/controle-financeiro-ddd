@@ -1,9 +1,4 @@
-import { IOs, systemTypes } from '@domain-user/values-objects';
-import { Field, ObjectType, registerEnumType } from '@nestjs/graphql';
-
-registerEnumType(IOs, {
-  name: 'IOs',
-});
+import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class UserAgentType {
@@ -13,8 +8,8 @@ export class UserAgentType {
   @Field(() => String)
   version!: string;
 
-  @Field(() => IOs)
-  os!: systemTypes;
+  @Field(() => String)
+  os!: string;
 
   @Field(() => String)
   type!: string;
