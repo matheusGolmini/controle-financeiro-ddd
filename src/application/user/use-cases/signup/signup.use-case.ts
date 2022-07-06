@@ -15,7 +15,16 @@ import { SignupDto } from './signup.dto';
 export class SignUpUseCase implements IUseCase<SignupDto, Result<void>> {
   constructor(@Inject(USER_TYPE) private readonly userRepo: IUserRepository) {}
 
-  async execute({ email, password, term }: SignupDto): Promise<Result<void>> {
+  async execute({
+    email,
+    password,
+    term,
+    acceptedTerms,
+  }: SignupDto): Promise<Result<void>> {
+    if (!acceptedTerms) {
+      return Result.fail<void>('Terms must be accepted');
+    }
+
     const emailOrError = EmailValueObject.create(email);
     const passwordOrError = PasswordValueObject.create(password);
 
