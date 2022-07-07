@@ -86,6 +86,17 @@ describe('signin.use-case', () => {
     expect(result.error).toBe(ERROR_MESSAGES.INVALID_CREDENTIALS);
   });
 
+  it('should return fail if there is any error with the database', async () => {
+    jest.spyOn(userRepo, 'findOne').mockRejectedValueOnce('Error database');
+
+    const result = await useCase.execute({
+      email: 'valid_email@gmail.com',
+      password: 'valid_password',
+    });
+
+    expect(result.isFailure).toBeTruthy();
+  });
+
   it('should return token payload if provided a valid password', async () => {
     jest.spyOn(userRepo, 'findOne').mockResolvedValueOnce(user);
     jest.spyOn(fakeJwt, 'sign').mockReturnValueOnce('valid_token');

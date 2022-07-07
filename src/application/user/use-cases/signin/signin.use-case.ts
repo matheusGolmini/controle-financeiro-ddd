@@ -30,16 +30,22 @@ export class SigninUseCase implements IUseCase<SigninDto, Result<JWTPayload>> {
       return Result.fail<JWTPayload>(hasError.error.toString());
     }
 
-    const user = await this.userRepo.findOne({ email });
+    try {
+      const user = await this.userRepo.findOne({ email });
 
-    if (!user || !user.password.comparePasswords(password)) {
-      return Result.fail<JWTPayload>(ERROR_MESSAGES.INVALID_CREDENTIALS);
+      if (!user || !user.password.comparePasswords(password)) {
+        return Result.fail<JWTPayload>(ERROR_MESSAGES.INVALID_CREDENTIALS);
+      }
+
+      const token = this.jwtService.sign({ userId: user.id.toString() });
+
+      return Result.ok<JWTPayload>({
+        token,
+      });
+    } catch (error) {
+      return Result.fail<JWTPayload>(
+        'Internal Server Error on Signin Use Case',
+      );
     }
-
-    const token = this.jwtService.sign({ userId: user.id.toString() });
-
-    return Result.ok<JWTPayload>({
-      token,
-    });
   }
 }
