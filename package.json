@@ -25,7 +25,9 @@
     "@nestjs/common": "^8.4.4",
     "@nestjs/core": "^8.4.4",
     "@nestjs/graphql": "^10.0.16",
+    "@nestjs/jwt": "^8.0.1",
     "@nestjs/mongoose": "^9.1.1",
+    "@nestjs/passport": "^8.2.2",
     "@nestjs/platform-express": "^8.4.4",
     "apollo-server-express": "^3.9.0",
     "bcrypt": "^5.0.1",
@@ -33,11 +35,14 @@
     "graphql": "^16.5.0",
     "module-alias": "^2.2.2",
     "mongoose": "^6.4.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "ua-parser-js": "^1.0.2",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@faker-js/faker": "^6.1.1",
@@ -49,6 +54,7 @@
     "@types/jest": "27.4.1",
     "@types/module-alias": "^2.0.1",
     "@types/node": "^16.0.0",
+    "@types/passport-local": "^1.0.34",
     "@types/supertest": "^2.0.11",
     "@types/ua-parser-js": "^0.7.36",
     "@types/uuid": "^8.3.4",
