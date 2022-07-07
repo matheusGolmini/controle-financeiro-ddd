@@ -12,4 +12,5 @@ export const ERROR_MESSAGES = {
   INVALID_EMAIL: 'Invalid email',
   INVALID_IP: 'Invalid ip',
   INVALID_PASSWORD: 'Password must have min 3 char and max 20 char',
+  INVALID_CREDENTIALS: 'Invalid credentials',
 };

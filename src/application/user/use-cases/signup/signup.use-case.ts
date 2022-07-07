@@ -9,11 +9,11 @@ import {
   DateValueObject,
 } from '@domain-user/values-objects';
 import { Inject } from '@nestjs/common';
-import { IUserRepository, USER_TYPE } from '@repo/user.repository.interface';
+import { IUserRepository, USER_TOKEN } from '@repo/user.repository.interface';
 import { SignupDto } from './signup.dto';
 
 export class SignUpUseCase implements IUseCase<SignupDto, Result<void>> {
-  constructor(@Inject(USER_TYPE) private readonly userRepo: IUserRepository) {}
+  constructor(@Inject(USER_TOKEN) private readonly userRepo: IUserRepository) {}
 
   async execute({
     email,

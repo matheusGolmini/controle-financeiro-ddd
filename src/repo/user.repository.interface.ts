@@ -4,4 +4,4 @@ import { IBaseRepository } from '@shared/repo/base.repository.interface';
 
 export type IUserRepository = IBaseRepository<UserAggregate, User>;
 
-export const USER_TYPE = 'UserRepository';
+export const USER_TOKEN = 'UserRepository';
