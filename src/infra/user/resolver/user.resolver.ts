@@ -1,7 +1,11 @@
-import { Inject } from '@nestjs/common';
+import { Inject, UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { JWTPayload } from 'application/user/use-cases/signin/jwt.payload.interface';
+import { SiginInput } from '../inputs/signin.input';
 import { SignupInput } from '../inputs/signup.input';
 import { GetUserAgent } from '../services/decorators/get-user-agent.decorator';
+import { JwtAuthGuard } from '../services/guards/jwt-auth.guard';
+import { JWTPayloadType } from '../types/jwt-payload.type';
 import { UserAgentType } from '../types/user-agent.type';
 import { UserType } from '../types/user.type';
 import { UserService } from '../user.service';
@@ -14,6 +18,7 @@ export class UserResolver {
   ) {}
 
   @Query(() => [UserType])
+  @UseGuards(JwtAuthGuard)
   async users(): Promise<UserType[]> {
     const userType = new UserType();
     userType.email = 'valid_email@domain.com';
@@ -47,5 +52,10 @@ export class UserResolver {
       },
     });
     return success;
+  }
+
+  @Mutation(() => JWTPayloadType)
+  async signing(@Args(SiginInput.name) args: SiginInput): Promise<JWTPayload> {
+    return this.userService.signin(args);
   }
 }

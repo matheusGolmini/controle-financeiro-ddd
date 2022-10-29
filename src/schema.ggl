@@ -2,6 +2,10 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type JWTPayloadType {
+  token: String!
+}
+
 type UserAgentType {
   name: String!
   version: String!
@@ -27,6 +31,7 @@ type Query {
 
 type Mutation {
   signup(SignupInput: SignupInput!): Boolean!
+  signing(SiginInput: SiginInput!): JWTPayloadType!
 }
 
 input SignupInput {
@@ -34,4 +39,9 @@ input SignupInput {
   password: String!
   ip: String!
   acceptedTerms: Boolean!
+}
+
+input SiginInput {
+  email: String!
+  password: String!
 }

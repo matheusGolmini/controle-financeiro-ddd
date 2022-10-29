@@ -17,11 +17,14 @@ export class UserRepository implements IUserRepository {
   find(filter: Filter<Partial<User>>): Promise<UserAggregate[]> {
     throw new Error('Method not implemented');
   }
-  findOne(filter: Filter<Partial<User>>): Promise<UserAggregate> {
-    throw new Error('Method not implemented');
-  }
   delete(filter: Filter<Partial<User>>): Promise<void> {
     throw new Error('Method not implemented');
+  }
+
+  async findOne(filter: Filter<Partial<User>>): Promise<UserAggregate> {
+    const foundUser = await this.conn.findOne(filter);
+
+    return foundUser ? this.mapper.toDomain(foundUser) : null;
   }
 
   async exists(filter: Filter<Partial<User>>): Promise<boolean> {
